@@ -1,22 +1,24 @@
 class KontoController < ApplicationController
+  include KontoHelper
   def rejestracja
   end
 
+  
+  def logowanie_form
+  end
+  
   def logowanie
-    redirect_to :action => "start" if session[:user_id]
-    if params["login"]
-      if stu = Student.find_by_login(params["login"]["username"])
-        session[:user_id] = stu.id
-        redirect_to :action => "student"
-      elsif wyk = Wykladowca.find_by_login(params["login"]["username"])
-        session[:user_id] = wyk.id
-        redirect_to konto_wykladowca_path
-      else
-        redirect_to root_url
-      end
+    if student = Student.find_by(login: params[:session][:login])
+      log_in(student)
+      redirect_to panel_studenta_url
+    elsif wykladowca = Wykladowca.find_by(login: params[:session][:login])
+      log_in(wykladowca)
+      redirect_to panel_wykladowcy_url
+    else
+      redirect_to root_url
     end
   end
-
+  
   def pierwsze_logowanie
   end
 

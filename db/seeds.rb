@@ -5,5 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-wy=Wykladowca.create(imie: "Wy1Im", nazwisko: "Wy1Naz", login: "wy", haslo: "wy", email: "wy1@example.com")
-st=Student.create(login: "st", haslo: "st", email: "st@exam.com", imie: "St1Im", nazwisko: "StNAz", nralbumu: "111" )
+Wykladowca.create!(imie: 'Wy1Im', 
+                   nazwisko: 'Wy1Naz', 
+                   login: 'wy', 
+                   haslo: 'wy', 
+                   email: 'wy1@example.com')
+Student.create!(login: "st", 
+                haslo: "st", 
+                email: "st@exam.com", 
+                imie: "St1Im", 
+                nazwisko: "StNAz", 
+                nralbumu: "111" )

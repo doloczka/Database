@@ -66,19 +66,6 @@ ActiveRecord::Schema.define(version: 20160107163030) do
   add_index "students", ["grupy_id"], name: "index_students_on_grupy_id"
   add_index "students", ["login"], name: "index_students_on_login", unique: true
 
-  create_table "users", force: :cascade do |t|
-    t.string   "login"
-    t.string   "email"
-    t.string   "imie"
-    t.string   "nazwisko"
-    t.integer  "nralbumu"
-    t.boolean  "wykladowca"
-    t.boolean  "potwierdzony"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "password_digest"
-  end
-
   create_table "wiadomoscis", force: :cascade do |t|
     t.integer  "wykladowca_id"
     t.integer  "student_id"

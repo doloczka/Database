@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
+ 
   get 'konto/rejestracja'
 
-  get 'konto/logowanie'
+  get 'logowanie_form' => 'konto#logowanie_form'
+  
+  post 'logowanie' => 'konto#logowanie'
 
   get 'konto/pierwsze_logowanie'
 
-  get 'konto/wykladowca'
+  get 'panel_wykladowcy' => 'konto#wykladowca'
 
-  get 'konto/student'
+  get 'panel_studenta' => 'konto#student'
   
-  root :to => "konto#logowanie"
+  root 'konto#logowanie_form'
   resources :grupy
 
   # The priority is based upon order of creation: first created -> highest priority.
