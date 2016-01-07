@@ -8,10 +8,11 @@ class KontoController < ApplicationController
       if stu = Student.find_by_login(params["login"]["username"])
         session[:user_id] = stu.id
         redirect_to :action => "student"
-      end
-      if wyk = Wykladowca.find_by_login(params["login"]["username"])
+      elsif wyk = Wykladowca.find_by_login(params["login"]["username"])
         session[:user_id] = wyk.id
-        redirect_to :action => "student"
+        redirect_to konto_wykladowca_path
+      else
+        redirect_to root_url
       end
     end
   end
@@ -20,6 +21,7 @@ class KontoController < ApplicationController
   end
 
   def wykladowca
+    
   end
 
   def student
