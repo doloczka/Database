@@ -9,9 +9,11 @@ class KontoController < ApplicationController
         session[:user_id] = stu.id
         redirect_to :action => "student"
       end
-      if wyk = Wykladowca.find_by_login(params["login"]["username"])
+      else if wyk = Wykladowca.find_by_login(params["login"]["username"])
         session[:user_id] = wyk.id
         redirect_to :action => "student"
+      else
+        redirect_back
       end
     end
   end

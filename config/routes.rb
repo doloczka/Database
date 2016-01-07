@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'konto/student'
   
   root :to => "konto#logowanie"
+  
+  post "konto/studen" => "konto#studen"
+  post "konto/wykladowca" => "konto#wykladowca"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

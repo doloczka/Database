@@ -8,7 +8,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :nazwisko
       t.string :nralbumu
       t.references :grupy, index: true, foreign_key: true
-      t.boolen :nr_logowania
+      t.boolean :nr_logowania
       t.binary :avatar
 
       t.timestamps null: false
