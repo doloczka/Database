@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'panel_studenta' => 'konto#student'
   
+
   root 'konto#logowanie_form'
   resources :grupy
 
