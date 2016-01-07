@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'konto/rejestracja'
+
+  get 'konto/logowanie'
+
+  get 'konto/pierwsze_logowanie'
+
+  get 'konto/wykladowca'
+
+  get 'konto/student'
+  
+  root :to => "konto#logowanie"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

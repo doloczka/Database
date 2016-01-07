@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wykladowca_id: 
+  poziom_zadania: 1
+  nr_zadania: 1
+  pkt_za_zadanie: 1
+  tresc: MyText
+  podpowiedz: MyText
+  ile_razy_uzyte: 1
+
+two:
+  wykladowca_id: 
+  poziom_zadania: 1
+  nr_zadania: 1
+  pkt_za_zadanie: 1
+  tresc: MyText
+  podpowiedz: MyText
+  ile_razy_uzyte: 1

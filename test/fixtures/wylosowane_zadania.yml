@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  poziom: 1
+  numer: 1
+  student_id: 
+  zadania_glowne_id: 
+
+two:
+  poziom: 1
+  numer: 1
+  student_id: 
+  zadania_glowne_id: 
