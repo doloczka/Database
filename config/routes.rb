@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'logowanie_form' => 'konto#logowanie_form'
   
   post 'logowanie' => 'konto#logowanie'
+  
+  delete 'logout' => 'konto#wylogowanie'
 
   get 'konto/pierwsze_logowanie'
 
