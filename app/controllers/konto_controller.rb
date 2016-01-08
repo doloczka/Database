@@ -28,4 +28,11 @@ class KontoController < ApplicationController
 
   def student
   end
+  
+  def wyloguj
+    if session[:user_id]
+      session[:user_id] = nil
+      redirect_to :action => "logowanie"
+    end
+  end
 end
