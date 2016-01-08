@@ -1,12 +1,8 @@
 class KontoController < ApplicationController
-  before_action :zalogowany_student, only: [:student]
-  before_action :zalogowany_wykladowca, only: [:wykladowca]
-  
-  include KontoHelper
-  def rejestracja
-  end
 
   
+  include KontoHelper
+
   def logowanie_form
   end
   
@@ -28,18 +24,5 @@ class KontoController < ApplicationController
     redirect_to logowanie_form_path
     log_out
   end
-  
-  def pierwsze_logowanie
-  end
-
-  
-  private
-    def zalogowany_student
-      redirect_to root_url if @@student.nil?
-    end
-    
-    def zalogowany_wykladowca
-      redirect_to root_url if @@wykladowca.nil?
-    end
   
 end
