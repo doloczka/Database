@@ -15,12 +15,10 @@ class KontoController < ApplicationController
     wykladowca = Wykladowca.find_by(login: params[:session][:login])
     if student && student.haslo == params[:session][:haslo]  
       log_in(student)
-      @current_user = student
-      redirect_to panel_studenta_url
+      redirect_to student 
     elsif wykladowca && wykladowca.haslo == params[:session][:haslo]
       log_in(wykladowca)
-      @current_user = wykladowca
-      redirect_to panel_wykladowcy_url
+      redirect_to wykladowca 
     else
       redirect_to logowanie_form_path
     end
@@ -34,21 +32,14 @@ class KontoController < ApplicationController
   def pierwsze_logowanie
   end
 
-  def wykladowca
-    
-  end
-
-  def student
-    
-  end
   
   private
     def zalogowany_student
-      redirect_to root_url if !student.nil?
+      redirect_to root_url if @@student.nil?
     end
     
     def zalogowany_wykladowca
-      redirect_to root_url if !wykladowca.nil?
+      redirect_to root_url if @@wykladowca.nil?
     end
   
 end
