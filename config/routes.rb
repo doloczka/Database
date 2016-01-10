@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :grupies
   get 'konto/rejestracja'
 
   get 'logowanie_form' => 'konto#logowanie_form'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   
 
   root 'database#index'
-  resources :grupy
+  resources :grupies
   resources :student
   resources :wykladowca
   # The priority is based upon order of creation: first created -> highest priority.
