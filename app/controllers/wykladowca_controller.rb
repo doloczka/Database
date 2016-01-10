@@ -1,14 +1,17 @@
 class WykladowcaController < ApplicationController
-    before_action :zalogowany_wykladowca, only: :show
+    before_action :aktywny_wykladowca, only: :show
     
     def show
-        @wykladowca = Wykladowca.find_by(login: session[:login])
+        @wykladowca = Wykladowca.find(params[:id])
     end
     
     private
     
-    def zalogowany_wykladowca
-        @user = Wykladowca.find(params[:id])
-        redirect_to(root_url) unless aktualny_wykladowca?(@user)
+    def aktywny_wykladowca
+        if zalogowany_wykladowca.nil?
+             redirect_to root_url
+        end
     end
+    
+    
 end
