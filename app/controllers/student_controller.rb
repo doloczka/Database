@@ -1,7 +1,7 @@
 class StudentController < ApplicationController
 
     def show
-        @student = Student.find_by(id: session[:user_id])
+        @student = Student.find_by(login: session[:login])
     end
 
 end

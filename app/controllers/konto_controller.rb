@@ -24,5 +24,5 @@ class KontoController < ApplicationController
     redirect_to logowanie_form_path
     log_out
   end
-  
+
 end
