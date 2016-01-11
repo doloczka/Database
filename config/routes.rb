@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
  
-  resources :grupies
   get 'konto/rejestracja'
 
   get 'logowanie_form' => 'konto#logowanie_form'
@@ -17,9 +16,12 @@ Rails.application.routes.draw do
   
 
   root 'database#index'
-  resources :grupies
-  resources :student
-  resources :wykladowca
+  
+  resources :wykladowca do
+    resources :grupies do
+      resources :student
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

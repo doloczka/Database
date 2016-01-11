@@ -10,6 +10,7 @@ class GrupiesController < ApplicationController
   # GET /grupies/1
   # GET /grupies/1.json
   def show
+    @grupy = Grupy.find(params[:id])
   end
 
   # GET /grupies/new
@@ -25,16 +26,16 @@ class GrupiesController < ApplicationController
   # POST /grupies.json
   def create
     @grupy = Grupy.new(grupy_params)
-
-    respond_to do |format|
-      if @grupy.save
-        format.html { redirect_to @grupy, notice: 'Grupy was successfully created.' }
-        format.json { render :show, status: :created, location: @grupy }
-      else
-        format.html { render :new }
-        format.json { render json: @grupy.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to url_for(:controller => 'grupies', :action => 'index')
+    # respond_to do |format|
+    #   if @grupy.save
+    #     format.html { redirect_to @grupy, notice: 'Grupy was successfully created.' }
+    #     format.json { render :show, status: :created, location: @grupy }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @grupy.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /grupies/1
@@ -69,6 +70,6 @@ class GrupiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grupy_params
-      params[:grupy]
+      params.require(:grupy).permit(:nazwa)
     end
 end

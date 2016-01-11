@@ -12,9 +12,9 @@
   <tbody>
     <% @grupies.each do |grupy| %>
       <tr>
-        <td><%= link_to 'Show', grupy %></td>
-        <td><%= link_to 'Edit', edit_grupy_path(grupy) %></td>
-        <td><%= link_to 'Destroy', grupy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', wykladowca_grupy_path(grupy) %></td>
+        <td><%= link_to 'Edit', edit_wykladowca_grupy_path(grupy) %></td>
+        <td><%= link_to 'Destroy', wykladowca_grupy_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Grupy', new_grupy_path %>
+<%= link_to 'New Grupy', new_wykladowca_grupy_path(:user_id) %>

@@ -1,4 +1,7 @@
-<%= form_for(@grupy) do |f| %>
+<%= form_for @grupy, url: url_for(:controller => 'grupies', :action => 'create'), html: { method: :post } do |f| %>
+  <%=f.label :nazwa%>
+  <%=f.text_field :nazwa%>
+  <%=hidden_field_tag :wykladowca_id, :user_id%>
   <% if @grupy.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@grupy.errors.count, "error") %> prohibited this grupy from being saved:</h2>
