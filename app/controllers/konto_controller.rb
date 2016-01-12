@@ -1,12 +1,8 @@
 class KontoController < ApplicationController
-  before_action :zalogowany_student, only: [:student]
-  before_action :zalogowany_wykladowca, only: [:wykladowca]
-  
-  include KontoHelper
-  def rejestracja
-  end
 
   
+  include KontoHelper
+
   def logowanie_form
   end
   
@@ -15,12 +11,10 @@ class KontoController < ApplicationController
     wykladowca = Wykladowca.find_by(login: params[:session][:login])
     if student && student.haslo == params[:session][:haslo]  
       log_in(student)
-      @current_user = student
-      redirect_to panel_studenta_url
+      redirect_to student 
     elsif wykladowca && wykladowca.haslo == params[:session][:haslo]
       log_in(wykladowca)
-      @current_user = wykladowca
-      redirect_to panel_wykladowcy_url
+      redirect_to wykladowca 
     else
       redirect_to logowanie_form_path
     end
@@ -30,14 +24,8 @@ class KontoController < ApplicationController
     redirect_to logowanie_form_path
     log_out
   end
-  
-  def pierwsze_logowanie
-  end
 
-  def wykladowca
-    
-  end
-
+<<<<<<< HEAD
   def student
     
   end
@@ -60,4 +48,6 @@ class KontoController < ApplicationController
     end
   
 >>>>>>> edc49ac1c3fc436c650d127d623b94cb541704b9
+=======
+>>>>>>> aedf507fd67bab66a1d345e8f95b83e5db1b085c
 end

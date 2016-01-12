@@ -15,9 +15,10 @@ Rails.application.routes.draw do
   get 'panel_studenta' => 'konto#student'
   
 
-  root 'konto#logowanie_form'
+  root 'database#index'
   resources :grupy
-
+  resources :student
+  resources :wykladowca
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

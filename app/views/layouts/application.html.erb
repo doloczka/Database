@@ -13,6 +13,12 @@
         <div class='alert alert-<%=message_type%>'><%= message %></div>
       <%end%>
       <%= yield %>
+      <% if zalogowany?  %>
+        <%= link_to "Log out", logout_path, method: "delete" %>
+        <%= @zalogowany_uzytkownik.login if !zalogowany_wykladowca.nil?%>
+      <%else%>
+        <p> nikt nie jest zalogowany</p>
+      <% end %>
       <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
