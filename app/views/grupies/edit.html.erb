@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @grupy %> |
-<%= link_to 'Back',  %>
+<%= link_to 'Show', [@grupy.wykladowca, @grupy] %> |
+<%= link_to 'Back', wykladowca_grupies_path(@grupy.wykladowca) %>
