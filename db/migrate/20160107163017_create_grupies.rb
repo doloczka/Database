@@ -5,6 +5,6 @@ class CreateGrupies < ActiveRecord::Migration
       t.references :wykladowca, index: true, foreign_key: true
       t.timestamps null: false
     end
-    add_index :grupies, :wykladowca_id
+    #add_index :grupies, :wykladowca_id
   end
 end

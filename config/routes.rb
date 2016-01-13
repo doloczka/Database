@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
  
+  get 'student/za1' =>'student#za1'
+  get 'student/za2' =>'student#za2'
+
+  get 'zajecia1/zaj1'
+
+  get 'zajecia1/zaj1'
+
   get 'konto/rejestracja'
 
   get 'logowanie_form' => 'konto#logowanie_form'
@@ -23,7 +30,11 @@ Rails.application.routes.draw do
     end
   end
   resources :student
-
+   post 'student/zad11' => 'student#zad11'
+   post 'student/zad12' => 'student#zad12'
+   post 'student/zad13' => 'student#zad13'
+   post 'student/zad14' => 'student#zad14'
+   post 'student/zad15' => 'student#zad15'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

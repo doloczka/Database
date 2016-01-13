@@ -15,4 +15,173 @@ Student.create!(login: "st",
                 email: "st@exam.com", 
                 imie: "St1Im", 
                 nazwisko: "StNAz", 
-                nralbumu: "111" )
+                nralbumu: "111", 
+                grupy_id: "1"
+                )
+                
+Grupy.create!(wykladowca_id: "1",
+                nazwa: "sroda 9:40")
+                
+Progre.create!( student_id: "1", 
+                pkt_rankingowe: "30", 
+                zdrowie: "100", 
+                doswiadczenie: "50", 
+                level: "1")
+Rozwiazanium.create!(wykladowca_id: "1",
+                    student_id: "1",
+                    przeczytana: "0")
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "1",
+                    nr_zadania: "1",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie pierwsze dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "1",
+                    nr_zadania: "2",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie drugie dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "1",
+                    nr_zadania: "3",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie trzecie dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "1",
+                    nr_zadania: "4",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie czwarte dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "1",
+                    nr_zadania: "5",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "2",
+                    nr_zadania: "1",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "2",
+                    nr_zadania: "2",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+					
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "2",
+                    nr_zadania: "3",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "2",
+                    nr_zadania: "4",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "2",
+                    nr_zadania: "5",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+
+					
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "3",
+                    nr_zadania: "1",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "3",
+                    nr_zadania: "2",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "3",
+                    nr_zadania: "3",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "3",
+                    nr_zadania: "4",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "3",
+                    nr_zadania: "5",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "4",
+                    nr_zadania: "1",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "4",
+                    nr_zadania: "2",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "4",
+                    nr_zadania: "3",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "4",
+                    nr_zadania: "4",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "4",
+                    nr_zadania: "5",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "5",
+                    nr_zadania: "1",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "5",
+                    nr_zadania: "2",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "5",
+                    nr_zadania: "3",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "5",
+                    nr_zadania: "4",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
+ZadaniaGlowne.create!(wykladowca_id: "1",
+                    poziom_zadania: "5",
+                    nr_zadania: "5",
+                    pkt_za_zadanie: "10",
+                    tresc: "zadanie piate dzien pierwszy"
+                    )
