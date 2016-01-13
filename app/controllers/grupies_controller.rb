@@ -42,7 +42,7 @@ class GrupiesController < ApplicationController
   # POST /grupies.json
   def create
     wykladowca = Wykladowca.find(params[:wykladowca_id])
-    @grupy = wykladowca.grupies.create(params[:grupy])
+    @grupy = wykladowca.grupies.create(grupy_params)
     respond_to do |format|
       if @grupy.save
         format.html { redirect_to [@grupy.wykladowca, @grupy], notice: 'Grupy was successfully created.' }
