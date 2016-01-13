@@ -24,5 +24,12 @@ module KontoHelper
        !zalogowany_student.nil? || !zalogowany_wykladowca.nil?
     end
     
+    def zalogowany_wykladowca?
+        Wykladowca.find_by(login: session[:login])
+    end
+    
+    def zalogowany_student?
+        Student.find_by(login: session[:login])
+    end
     
 end

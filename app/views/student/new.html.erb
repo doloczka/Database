@@ -1,0 +1,21 @@
+<%= form_for ([@students.grupy, @students]), url: {action: "create"} do |f| %>
+  <% if @students.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@students.errors.count, "error") %> prohibited this grupy from being saved:</h2>
+
+      <ul>
+      <% @students.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+  <%=f.label :nralbumu %>
+  <%=f.text_field :nralbumu%>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= link_to 'Back', grupy_path(params[:grupy_id]) %>

@@ -10,15 +10,10 @@ Rails.application.routes.draw do
 
   get 'konto/pierwsze_logowanie'
 
-  get 'panel_wykladowcy' => 'konto#wykladowca'
-
-  get 'panel_studenta' => 'konto#student'
-  
-
   root 'database#index'
   
   resources :wykladowca do
-    resources :grupies do
+    resources :grupies, shallow: true do
       resources :student
     end
   end
