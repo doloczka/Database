@@ -3,8 +3,7 @@ class GrupiesController < ApplicationController
   # GET /grupies
   # GET /grupies.json
   def index
-    wykladowca = Wykladowca.find(params[:wykladowca_id])
-    @grupies = wykladowca.grupies
+    @grupies = Grupy.where("wykladowca_id = :wykladowca_id", wykladowca_id: params[:wykladowca_id])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @grupies }
@@ -14,8 +13,8 @@ class GrupiesController < ApplicationController
   # GET /grupies/1
   # GET /grupies/1.json
   def show
-    wykladowca = Wykladowca.find(params[:wykladowca_id])
-    @grupy = wykladowca.grupies.find(params[:id])
+    @grupy = Grupy.find(params[:id])
+    @students = Student.where("grupy_id = :grupy_id", grupy_id: @grupy.id)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @grupy }
@@ -34,19 +33,18 @@ class GrupiesController < ApplicationController
 
   # GET /grupies/1/edit
   def edit
-    wykladowca = Wykladowca.find(params[:wykladowca_id])
-    @grupy = wykladowca.grupies.find(params[:id])
+    @grupy = Grupy.find(params[:id])
   end
 
   # POST /grupies
   # POST /grupies.json
   def create
     wykladowca = Wykladowca.find(params[:wykladowca_id])
-    @grupy = wykladowca.grupies.create(params[:grupy])
+    @grupy = wykladowca.grupies.create(grupy_params)
     respond_to do |format|
       if @grupy.save
-        format.html { redirect_to [@grupy.wykladowca, @grupy], notice: 'Grupy was successfully created.' }
-        format.json { render :show, status: :created, :location => [@grupy.wykladowca, @grupy] }
+        format.html { redirect_to @grupy, notice: 'Grupy was successfully created.' }
+        format.json { render :show, status: :created, location: @grupy }
       else
         format.html { render :action => "new" }
         format.json { render json: @grupy.errors, status: :unprocessable_entity }
@@ -57,12 +55,11 @@ class GrupiesController < ApplicationController
   # PATCH/PUT /grupies/1
   # PATCH/PUT /grupies/1.json
   def update
-    wykladowca = Wykladowca.find(params[:wykladowca_id])
-    @grupy = wykladowca.grupies.find(params[:id])
+    @grupy = Grupy.find(params[:id])
     respond_to do |format|
       if @grupy.update(grupy_params)
-        format.html { redirect_to [@grupy.wykladowca, @grupy], notice: 'Grupy was successfully updated.' }
-        format.json { render :show, status: :ok, :location => [@grupy.wykladowca, @grupy] }
+        format.html { redirect_to @grupy, notice: 'Grupy was successfully updated.' }
+        format.json { render :show, status: :ok, location: @grupy }
       else
         format.html { render :action => "edit" }
         format.json { render json: @grupy.errors, status: :unprocessable_entity }
@@ -73,11 +70,10 @@ class GrupiesController < ApplicationController
   # DELETE /grupies/1
   # DELETE /grupies/1.json
   def destroy
-    wykladowca = Wykladowca.find(params[:wykladowca_id])
-    @grupy = wykladowca.grupies.find(params[:id])
+    @grupy = Grupy.find(params[:id])
     @grupy.destroy
     respond_to do |format|
-      format.html { redirect_to wykladowca_grupies_url, notice: 'Grupy was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Grupy was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

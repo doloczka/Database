@@ -14,25 +14,20 @@ Rails.application.routes.draw do
 
   get 'konto/pierwsze_logowanie'
 
-  get 'panel_wykladowcy' => 'konto#wykladowca'
-
-  get 'panel_studenta' => 'konto#student'
-  
-
   root 'database#index'
   
   resources :wykladowca do
-    resources :grupies do
+    resources :grupies, shallow: true do
       resources :student
     end
   end
-  resources :student
-   
    post 'student/zad11' => 'student#zad11'
    post 'student/zad12' => 'student#zad12'
    post 'student/zad13' => 'student#zad13'
    post 'student/zad14' => 'student#zad14'
    post 'student/zad15' => 'student#zad15'
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,53 @@
+<% if zalogowany_wykladowca? %>
+<h1>Editing Student</h1>
+
+<%= form_for @student do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this grupy from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="field">
+  <%=f.label :nralbumu %>
+  <%=f.text_field :nralbumu%>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show',  @student %> |
+<%= link_to 'Back', grupy_path(@student.grupy_id) %>
+<%else%>
+  <%= form_for @student do |f| %>
+    <div class="field">
+  <%=f.label :login %>
+  <%=f.text_field :login%>
+</div>
+<div class="field">
+  <%=f.label :haslo %>
+  <%=f.text_field :haslo%>
+</div>
+<div class="field">
+  <%=f.label :email %>
+  <%=f.text_field :email %>
+</div>
+<div class="field">
+  <%=f.label :imie %>
+  <%=f.text_field :imie %>
+</div>
+<div class="field">
+  <%=f.label :nazwisko %>
+  <%=f.text_field :nazwisko%>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+<%end%>

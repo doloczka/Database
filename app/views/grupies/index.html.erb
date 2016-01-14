@@ -13,9 +13,9 @@
     <% @grupies.each do |grupy| %>
       <tr>
         <td><%= grupy.nazwa%></td>
-        <td><%= link_to 'Show', [grupy.wykladowca, grupy] %></td>
-        <td><%= link_to 'Edit', edit_wykladowca_grupy_path(grupy.wykladowca, grupy)%></td>
-        <td><%= link_to 'Destroy', [grupy.wykladowca, grupy], :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to 'Show', grupy %></td>
+        <td><%= link_to 'Edit', edit_grupy_path(grupy)%></td>
+        <td><%= link_to 'Destroy', grupy, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
   </tbody>
