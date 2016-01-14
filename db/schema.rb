@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160107163030) do
+ActiveRecord::Schema.define(version: 20160114200657) do
 
   create_table "grupies", force: :cascade do |t|
     t.text     "nazwa"
@@ -40,8 +40,6 @@ ActiveRecord::Schema.define(version: 20160107163030) do
     t.text     "tresc_zadania"
     t.text     "odpowiedz"
     t.integer  "przeczytana"
-    t.date     "data"
-    t.time     "godzina"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -66,9 +64,21 @@ ActiveRecord::Schema.define(version: 20160107163030) do
   add_index "students", ["grupy_id"], name: "index_students_on_grupy_id"
   add_index "students", ["login"], name: "index_students_on_login", unique: true
 
+  create_table "terminies", force: :cascade do |t|
+    t.integer  "grupy_id"
+    t.integer  "nr_zajec"
+    t.date     "poczatek"
+    t.date     "koniec"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "terminies", ["grupy_id"], name: "index_terminies_on_grupy_id"
+
   create_table "wiadomoscis", force: :cascade do |t|
     t.integer  "wykladowca_id"
     t.integer  "student_id"
+    t.text     "temat"
     t.text     "tresc"
     t.integer  "przeczytana"
     t.datetime "created_at",    null: false

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grupy_id: 
+  nr_zajec: 1
+  poczatek: 2016-01-14
+  koniec: 2016-01-14
+
+two:
+  grupy_id: 
+  nr_zajec: 1
+  poczatek: 2016-01-14
+  koniec: 2016-01-14

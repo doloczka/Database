@@ -7,30 +7,7 @@ doswiadczenie <%=@progr.doswiadczenie %><br></br>
 punkty rankingowe <%=@progr.pkt_rankingowe %><br></br>
 <br></br>
 
-<<<<<<< HEAD
-<%= link_to "Log out", logout_path, method: "delete" %>
-<h1>zalogowano do kąta <%= @student.imie%></h1>
-<%= @student.imie %> <%= @student.nazwisko %>
-<br></br>
-nr albumu niepotrzebny ale jest<%=@student.nralbumu%>
-<br></br>
-
-level <%=@progr.level %><br></br>
-zdrowie <%=@progr.zdrowie %><br></br>
-doswiadczenie <%=@progr.doswiadczenie %><br></br>
-punkty rankingowe <%=@progr.pkt_rankingowe %><br></br>
-<br></br>
-
-
-<a href ="zajecia1.html.erb">zajecia 1</a>
-
-<%= form_for :zad, url: {action: "zad11"} do |f| %>
-  <%= f.text_area :odp, size: "60x5" %><br>
-  <%= f.submit "Wyślij" %></br>
-<% end %>
-=======
 
 <%= link_to "zajecia1", student_za1_path(session[:user_id]) %>
 <%= link_to "inbox", student_inbox_path(session[:user_id]) %>
 <br></br><br></br>
->>>>>>> adampanelstudenta

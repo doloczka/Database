@@ -6,8 +6,6 @@ class CreateRozwiazania < ActiveRecord::Migration
       t.text :tresc_zadania
       t.text :odpowiedz
       t.integer :przeczytana
-      t.date :data
-      t.time :godzina
 
       t.timestamps null: false
     end
