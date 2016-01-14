@@ -12,7 +12,7 @@ class StudentController < ApplicationController
   
   def create
     grupy = Grupy.find(params[:grupy_id])
-    @students = grupy.students.create(student_params)
+    @students = grupy.students.create(student_params_wykladowca)
     @students.login = params[:student][:nralbumu]
     @students.haslo = params[:student][:nralbumu]
     respond_to do |format|
@@ -35,16 +35,30 @@ class StudentController < ApplicationController
     end
     
     def update
-        @student = find_student
+      @student = find_student
+      if zalogowany_student?
+        @student.nr_logowania = true
         respond_to do |format|
-      if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Grupy was successfully updated.' }
-        format.json { render :show, status: :ok, location: @grupy }
-      else
-        format.html { render :action => "edit" }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
+         if @student.update(student_param)
+            format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+            format.json { render :show, status: :ok, location: @student }
+         else
+            format.html { render :action => "edit" }
+            format.json { render json: @student.errors, status: :unprocessable_entity }
+         end
+        end
       end
-    end
+      if zalogowany_wykladowca?
+        respond_to do |format|
+          if @student.update(student_params_wykladowca)
+            format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+            format.json { render :show, status: :ok, location: @grupy }
+          else
+            format.html { render :action => "edit" }
+            format.json { render json: @student.errors, status: :unprocessable_entity }
+          end
+        end
+      end
     end
     
     def destroy
@@ -60,9 +74,13 @@ class StudentController < ApplicationController
     def aktywny_student
        redirect_to root_url if zalogowany_student.nil?
     end
-    def student_params
+    def student_params_wykladowca
         params.require(:student).permit(:nralbumu)
     end
+    def student_param
+      params.require(:student).permit(:login,:haslo,:email,:imie,:nazwisko)
+    end
+    
     def find_student
         Student.find(params[:id])
     end

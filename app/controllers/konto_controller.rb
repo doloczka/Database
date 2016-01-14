@@ -11,7 +11,11 @@ class KontoController < ApplicationController
     wykladowca = Wykladowca.find_by(login: params[:session][:login])
     if student && student.haslo == params[:session][:haslo]  
       log_in(student)
-      redirect_to student 
+      if student.nr_logowania
+        redirect_to student
+      else
+        redirect_to edit_student_path(student.id)
+      end
     elsif wykladowca && wykladowca.haslo == params[:session][:haslo]
       log_in(wykladowca)
       redirect_to wykladowca 
