@@ -24,6 +24,9 @@ class StudentController < ApplicationController
         format.json { render json: @students.errors, status: :unprocessable_entity }
       end
     end
+    student = Student.find_by(nralbumu: params[:student][:nralbumu] )
+    progres = Progre.new(student_id: student.id, pkt_rankingowe: "0", zdrowie: "100", doswiadczenie: "0", level: 1)
+    progres.save
   end
   
     def show
