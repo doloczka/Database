@@ -60,6 +60,8 @@ ZadaniaGlowne.create!(wykladowca_id: "1",
                     pkt_za_zadanie: "10",
                     tresc: "zadanie piate dzien pierwszy"
                     )
+                    
+     #zadania na kolejne dni+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ZadaniaGlowne.create!(wykladowca_id: "1",
                     poziom_zadania: "2",
                     nr_zadania: "1",
@@ -185,3 +187,7 @@ ZadaniaGlowne.create!(wykladowca_id: "1",
                     pkt_za_zadanie: "10",
                     tresc: "zadanie piate dzien pierwszy"
                     )
+Wiadomosci.create!(wykladowca_id: "1",
+		student_id: "1",
+		tresc: " pierwsza wiadomosc przykladowa"
+		)
