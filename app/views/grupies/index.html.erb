@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Grupies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grupies.each do |grupy| %>
+      <tr>
+        <td><%= grupy.nazwa%></td>
+        <td><%= link_to 'Show', [grupy.wykladowca, grupy] %></td>
+        <td><%= link_to 'Edit', edit_wykladowca_grupy_path(grupy.wykladowca, grupy)%></td>
+        <td><%= link_to 'Destroy', [grupy.wykladowca, grupy], :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Grupy', new_wykladowca_grupy_path %>

@@ -1,0 +1,20 @@
+<%= form_for ([@grupy.wykladowca, @grupy]) do |f| %>
+  <% if @grupy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@grupy.errors.count, "error") %> prohibited this grupy from being saved:</h2>
+
+      <ul>
+      <% @grupy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+  <%=f.label :nazwa%>
+  <%=f.text_field :nazwa%>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

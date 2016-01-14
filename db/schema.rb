@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20160107163030) do
 
   create_table "grupies", force: :cascade do |t|
-    t.integer  "wykladowca_id"
     t.text     "nazwa"
+    t.integer  "wykladowca_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
