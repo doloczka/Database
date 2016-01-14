@@ -38,7 +38,7 @@ class StudentController < ApplicationController
             #zadania na dzien1
             
             wszystkiezadania=ZadaniaGlowne.where(wykladowca_id: @gr.wykladowca_id, poziom_zadania: j , nr_zadania: i).count
-            los11=session[:user_id]%wszystkiezadania
+            los11= session[:user_id] % wszystkiezadania
             if los11==0
                 los11=1
             end
