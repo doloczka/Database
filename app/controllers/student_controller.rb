@@ -57,7 +57,21 @@ class StudentController < ApplicationController
           end
          end
         end
-        
+       gr= Student.find(session[:user_id])
+       progresy=Progre.order(pkt_rankingowe: :desc)
+        i=1
+        k=0
+       progresy.each do |pr|
+       k=k+1
+            if pr.student_id==session[:user_id]
+                @ran=i
+                @j=k
+            end
+            gru=Student.find(pr.student_id)
+            if gru.grupy_id==gr.grupy_id
+                i=i+1
+            end
+       end
     end
     def aktywny_student
        redirect_to root_url if zalogowany_student.nil?
@@ -65,52 +79,14 @@ class StudentController < ApplicationController
     
     def zad11
         @zad=Rozwiazanium.find_by(student_id: session[:user_id])
-        idzadania=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "1")
+        idzadania=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: params[:zad][:poziom_zadania], numer: params[:zad][:nr_zadania])
         tre=ZadaniaGlowne.find_by(id: idzadania.zadania_glowne_id)
         @zad.update_attributes(:odpowiedz => params[:zad][:odp], :tresc_zadania =>  tre.tresc)
         if @zad.save
            redirect_to :back
         end
     end
-    def zad12
-        @zad=Rozwiazanium.find_by(student_id: session[:user_id])
-        idzadania=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "2")
-        tre=ZadaniaGlowne.find_by(id: idzadania.zadania_glowne_id)
-        @zad.update_attributes(:odpowiedz => params[:zad][:odp], :tresc_zadania =>  tre.tresc)
-        if @zad.save
-           redirect_to :back
-        end
-    end
-    def zad13
-        @zad=Rozwiazanium.find_by(student_id: session[:user_id])
-        idzadania=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "3")
-        tre=ZadaniaGlowne.find_by(id: idzadania.zadania_glowne_id)
-        @zad.update_attributes(:odpowiedz => params[:zad][:odp], :tresc_zadania =>  tre.tresc)
-        if @zad.save
-           redirect_to :back
-        end
-    end
-    def zad14
-        @zad=Rozwiazanium.find_by(student_id: session[:user_id])
-        idzadania=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "4")
-        tre=ZadaniaGlowne.find_by(id: idzadania.zadania_glowne_id)
-        @zad.update_attributes(:odpowiedz => params[:zad][:odp], :tresc_zadania =>  tre.tresc)
-        if @zad.save
-           redirect_to :back
-        end
-    end
-    def zad15
-        @zad=Rozwiazanium.find_by(student_id: session[:user_id])
-        idzadania=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "5")
-        tre=ZadaniaGlowne.find_by(id: idzadania.zadania_glowne_id)
-        @zad.update_attributes(:odpowiedz => params[:zad][:odp], :tresc_zadania =>  tre.tresc)
-        if @zad.save
-           redirect_to :back
-        end
-    end
-    
-    
-    
+
     def za1
         idzadania11=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "1")
         @tre11=ZadaniaGlowne.find_by(id: idzadania11.zadania_glowne_id)
@@ -122,10 +98,6 @@ class StudentController < ApplicationController
         @tre14=ZadaniaGlowne.find_by(id: idzadania11.zadania_glowne_id)
         idzadania11=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "5")
         @tre15=ZadaniaGlowne.find_by(id: idzadania11.zadania_glowne_id)
-    end
-    
-    def inbox
-    
     end
     
     
@@ -183,10 +155,5 @@ class StudentController < ApplicationController
     def find_student
         Student.find(params[:id])
     end
-    
-    def rank
-       gr= Student.find(params[:id])
-       pr=Student.where(grupy_id: gr.grupy_id)
-    end
-    
+ 
 end

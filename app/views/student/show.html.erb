@@ -5,10 +5,12 @@ level <%=@progr.level %><br></br>
 zdrowie <%=@progr.zdrowie %><br></br>
 doswiadczenie <%=@progr.doswiadczenie %><br></br>
 punkty rankingowe <%=@progr.pkt_rankingowe %><br></br>
+pozycja w rankingu grupy <%= @ran %><br></br>
+pozycja w rankingu światowym <%= @j %><br></br>
 <br></br>
 
 
 <%= link_to "zajecia1", student_za1_path(session[:user_id]) %> | 
-<%= link_to "inbox", wiadomoscis_path(session[:user_id]) %><%= Wiadomosci.where(student_id: session[:user_id], przeczytana: "0").count%>
+<%= link_to "Wiadomosci", wiadomoscis_path(session[:user_id]) %><%= Wiadomosci.where(student_id: session[:user_id], przeczytana: "0").count%>
 <br></br><br></br>
 

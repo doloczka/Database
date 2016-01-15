@@ -4,3 +4,4 @@
 <p><%= @wykladowca.login %></p>
 <%= link_to "Grupy", wykladowca_grupies_path(params[:id]) %>
 <%= link_to "Zajęcia", wykladowca_zadania_glownes_path(params[:id]) %>
+<%= link_to "Wiadomosci", wiadomoscis_path(session[:user_id]) %><%= Wiadomosci.where(wykladowca_id: session[:user_id], przeczytana: 1).count%>

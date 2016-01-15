@@ -4,34 +4,44 @@
 <br>Zadanie 1</br>
 <br><%= @tre11.tresc %></br>
 <%= form_for :zad, url: {action: "zad11"} do |f| %>
+  <%= f.hidden_field "poziom_zadania", :value => 1 %>
+  <%= f.hidden_field "nr_zadania", :value => 1 %>
   <%= f.text_area :odp, size: "60x5" %><br>
   <%= f.submit "Wyślij" %></br>
 <% end %>
 <br></br>
 <br>Zadanie 2</br>
 <br><%= @tre12.tresc %></br>
-<%= form_for :zad, url: {action: "zad12"} do |f| %>
+<%= form_for :zad, url: {action: "zad11"} do |f| %>
+ <%= f.hidden_field "poziom_zadania", :value => 1 %>
+  <%= f.hidden_field "nr_zadania", :value => 2 %>
   <%= f.text_area :odp, size: "60x5" %><br>
   <%= f.submit "Wyślij" %></br>
 <% end %>
 <br></br>
 <br>Zadanie 3</br>
 <br><%= @tre13.tresc %></br>
-<%= form_for :zad, url: {action: "zad13"} do |f| %>
+<%= form_for :zad, url: {action: "zad11"} do |f| %>
+ <%= f.hidden_field "poziom_zadania", :value => 1 %>
+  <%= f.hidden_field "nr_zadania", :value => 3 %>
   <%= f.text_area :odp, size: "60x5" %><br>
   <%= f.submit "Wyślij" %></br>
 <% end %>
 <br></br>
 <br>Zadanie 4</br>
 <br><%= @tre14.tresc %></br>
-<%= form_for :zad, url: {action: "zad14"} do |f| %>
+<%= form_for :zad, url: {action: "zad11"} do |f| %>
+ <%= f.hidden_field "poziom_zadania", :value => 1 %>
+  <%= f.hidden_field "nr_zadania", :value => 4 %>
   <%= f.text_area :odp, size: "60x5" %><br>
   <%= f.submit "Wyślij" %></br>
 <% end %>
 <br></br>
 <br>Zadanie 5</br>
 <br><%= @tre15.tresc %></br>
-<%= form_for :zad, url: {action: "zad15"} do |f| %>
+<%= form_for :zad, url: {action: "zad11"} do |f| %>
+ <%= f.hidden_field "poziom_zadania", :value => 1 %>
+  <%= f.hidden_field "nr_zadania", :value => 5 %>
   <%= f.text_area :odp, size: "60x5" %><br>
   <%= f.submit "Wyślij" %></br>
 <% end %>

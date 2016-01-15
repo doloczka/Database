@@ -28,10 +28,7 @@ Rails.application.routes.draw do
     end
   end
    post 'student/zad11' => 'student#zad11'
-   post 'student/zad12' => 'student#zad12'
-   post 'student/zad13' => 'student#zad13'
-   post 'student/zad14' => 'student#zad14'
-   post 'student/zad15' => 'student#zad15'
+  
    
   
   # The priority is based upon order of creation: first created -> highest priority.

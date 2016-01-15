@@ -6,7 +6,7 @@ class ZadaniaGlownesController < ApplicationController
   def index
     @zadania_glownes = ZadaniaGlowne.all
     if zalogowany_student? #todo adam
-      
+    end 
   end
 
   # GET /zadania_glownes/1

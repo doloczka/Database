@@ -20,7 +20,9 @@
     <% end %>
   </tbody>
 </table>
-<br><%= link_to 'zadaj pytanie wykladowcy', new_wiadomosci_path(session[:user_id])%></br>
+<% if zalogowany_student? %>
+  <br><%= link_to 'zadaj pytanie wykladowcy', new_wiadomosci_path(session[:user_id])%></br>
+<% end  %>
 <br></br>
 <%= link_to 'Back', student_path(session[:user_id]) %>
 

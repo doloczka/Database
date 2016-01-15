@@ -1,5 +1,6 @@
 class WiadomoscisController < ApplicationController
   before_action :set_wiadomosci, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /wiadomoscis
   # GET /wiadomoscis.json
@@ -10,7 +11,7 @@ class WiadomoscisController < ApplicationController
     if zalogowany_wykladowca?
       @wiadomoscis = Wiadomosci.where(wykladowca_id: session[:user_id], przeczytana: "1")
     end
-  
+    
   end
 
   # GET /wiadomoscis/1
@@ -95,13 +96,12 @@ class WiadomoscisController < ApplicationController
         end
       end
     end
-    def createwy #todo loko wiadomosci
-      student=Student.find_by(nralbumu: params[@wiadomosci.nralbumu])
-      gr=Grupy.find_by(student.grupy_id)
+    def createwy 
       @wiadomosci = Wiadomosci.new(wiadomosci_params)
-      @wiadomosci.student_id=session[:user_id]
-      @wiadomosci.wykladowca_id=gr.wykladowca_id
+      @wiadomosci.wykladowca_id=session[:user_id]
+       @wiadomosci.student_id=params[:student_id]
       @wiadomosci.przeczytana="0"
+      @a=params[:student_id]
         respond_to do |format|
           if @wiadomosci.save
             format.html { redirect_to @wiadomosci, notice: 'Wiadomosci was successfully created.' }
