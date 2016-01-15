@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
  
+
   resources :zadania_glownes
+
+  resources :wiadomoscis
+
   get 'student/za1' =>'student#za1'
   get 'student/inbox' =>'student#inbox'
   get 'student/za2' =>'student#za2'
@@ -28,8 +32,8 @@ Rails.application.routes.draw do
    post 'student/zad13' => 'student#zad13'
    post 'student/zad14' => 'student#zad14'
    post 'student/zad15' => 'student#zad15'
-
-  
+   
+  get 'student/czytaj'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

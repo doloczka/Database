@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+<br>temat: <%= Wiadomosci.find_by(id: @wiadomosci.id).temat %></br>
+tresc: <%= Wiadomosci.find_by(id: @wiadomosci.id).tresc %>
+<br></br>
+
+<%= link_to 'Back', wiadomoscis_path %>

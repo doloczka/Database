@@ -1,0 +1,22 @@
+<%= form_for(@wiadomosci) do |f| %>
+  <% if @wiadomosci.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wiadomosci.errors.count, "error") %> prohibited this wiadomosci from being saved:</h2>
+
+      <ul>
+      <% @wiadomosci.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label "temat" %><br>
+  <%= f.text_field "temat" %><br>
+  <%= f.label "tresc" %><br>
+  <%= f.text_area :tresc, size: "60x5" %><br>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
