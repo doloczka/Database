@@ -21,6 +21,7 @@ class GrupiesController < ApplicationController
     end
   end
 
+
   # GET /grupies/new
   def new
     wykladowca = Wykladowca.find(params[:wykladowca_id])
