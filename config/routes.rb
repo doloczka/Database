@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
  
+
+  resources :zadania_glownes
+
   resources :wiadomoscis
+
   get 'student/za1' =>'student#za1'
   get 'student/inbox' =>'student#inbox'
   get 'student/za2' =>'student#za2'
@@ -18,6 +22,7 @@ Rails.application.routes.draw do
   root 'database#index'
   
   resources :wykladowca do
+    resources :zadania_glownes
     resources :grupies, shallow: true do
       resources :student
     end

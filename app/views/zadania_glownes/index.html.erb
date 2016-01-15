@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Zadania Glownes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zadania_glownes.each do |zadania_glowne| %>
+      <tr>
+        <td><%= zadania_glowne.poziom_zadania%></td>
+        <td><%= zadania_glowne.nr_zadania%></td>
+        <td><%= zadania_glowne.pkt_za_zadanie%></td>
+        <td><%= zadania_glowne.tresc%></td>
+        <td><%= zadania_glowne.podpowiedz%></td>
+        <td><%= link_to 'Show', zadania_glowne %></td>
+        <td><%= link_to 'Edit', edit_zadania_glowne_path(zadania_glowne) %></td>
+        <td><%= link_to 'Destroy', zadania_glowne, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Zadania glowne', new_zadania_glowne_path %>
