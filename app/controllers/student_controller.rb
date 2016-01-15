@@ -183,4 +183,10 @@ class StudentController < ApplicationController
     def find_student
         Student.find(params[:id])
     end
+    
+    def rank
+       gr= Student.find(params[:id])
+       pr=Student.where(grupy_id: gr.grupy_id)
+    end
+    
 end

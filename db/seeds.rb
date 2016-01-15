@@ -189,5 +189,7 @@ ZadaniaGlowne.create!(wykladowca_id: "1",
                     )
 Wiadomosci.create!(wykladowca_id: "1",
 		student_id: "1",
-		tresc: " pierwsza wiadomosc przykladowa"
+		tresc: " pierwsza wiadomosc przykladowa",
+		temat: "temacik",
+		przeczytana: "0"
 		)

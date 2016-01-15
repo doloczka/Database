@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wiadomosci</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+ <% i=0%>
+  <tbody>
+    <% @wiadomoscis.each do |wiadomosci| %>
+      <tr>
+        <td><%= i=1+i %></td>
+        <td><%= wiadomosci.temat %></td>
+        <td><%= link_to 'Otworz', wiadomosci %></td>
+        <td><%= link_to 'Usuń', wiadomosci, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br><%= link_to 'zadaj pytanie wykladowcy', new_wiadomosci_path(session[:user_id])%></br>
+<br></br>
+<%= link_to 'Back', student_path(session[:user_id]) %>
+
+
+
