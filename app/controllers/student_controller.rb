@@ -77,7 +77,7 @@ class StudentController < ApplicationController
        redirect_to root_url if zalogowany_student.nil?
     end 
     
-    def zad11
+    def rozwiazanie
         @zad=Rozwiazanium.find_by(student_id: session[:user_id])
         idzadania=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: params[:zad][:poziom_zadania], numer: params[:zad][:nr_zadania])
         tre=ZadaniaGlowne.find_by(id: idzadania.zadania_glowne_id)
@@ -88,16 +88,7 @@ class StudentController < ApplicationController
     end
 
     def za1
-        idzadania11=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "1")
-        @tre11=ZadaniaGlowne.find_by(id: idzadania11.zadania_glowne_id)
-        idzadania11=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "2")
-        @tre12=ZadaniaGlowne.find_by(id: idzadania11.zadania_glowne_id)
-        idzadania11=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "3")
-        @tre13=ZadaniaGlowne.find_by(id: idzadania11.zadania_glowne_id)
-        idzadania11=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "4")
-        @tre14=ZadaniaGlowne.find_by(id: idzadania11.zadania_glowne_id)
-        idzadania11=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "5")
-        @tre15=ZadaniaGlowne.find_by(id: idzadania11.zadania_glowne_id)
+       
     end
     
     

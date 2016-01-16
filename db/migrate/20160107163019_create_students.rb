@@ -11,6 +11,7 @@ class CreateStudents < ActiveRecord::Migration
       t.boolean :nr_logowania
       t.binary :avatar
 
+
       t.timestamps null: false
     end
     add_index :students, :login, unique: true

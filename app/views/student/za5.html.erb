@@ -2,45 +2,45 @@
 <%= link_to "Mapa świata", student_path(session[:user_id]) %>
 <br></br>
 <br>Zadanie 1</br>
-<br><%=ZadaniaGlowne.find_by(id: WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "1").zadania_glowne_id).tresc%></br>
+<br><%=ZadaniaGlowne.find_by(id: WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "2", numer: "1").zadania_glowne_id).tresc%></br>
 <%= form_for :zad, url: {action: "rozwiazanie"} do |f| %>
-  <%= f.hidden_field "poziom_zadania", :value => 1 %>
+  <%= f.hidden_field "poziom_zadania", :value => 5 %>
   <%= f.hidden_field "nr_zadania", :value => 1 %>
   <%= f.text_area :odp, size: "60x5" %><br>
   <%= f.submit "Wyślij" %></br>
 <% end %>
 <br></br>
 <br>Zadanie 2</br>
-<br><%=ZadaniaGlowne.find_by(id: WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "2").zadania_glowne_id).tresc%></br>
+<br><%=ZadaniaGlowne.find_by(id: WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "2", numer: "2").zadania_glowne_id).tresc%></br>
 <%= form_for :zad, url: {action: "rozwiazanie"} do |f| %>
- <%= f.hidden_field "poziom_zadania", :value => 1 %>
+ <%= f.hidden_field "poziom_zadania", :value => 5 %>
   <%= f.hidden_field "nr_zadania", :value => 2 %>
   <%= f.text_area :odp, size: "60x5" %><br>
   <%= f.submit "Wyślij" %></br>
 <% end %>
 <br></br>
 <br>Zadanie 3</br>
-<br><%=ZadaniaGlowne.find_by(id: WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "3").zadania_glowne_id).tresc%></br>
+<br><%=ZadaniaGlowne.find_by(id: WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "2", numer: "3").zadania_glowne_id).tresc%></br>
 <%= form_for :zad, url: {action: "rozwiazanie"} do |f| %>
- <%= f.hidden_field "poziom_zadania", :value => 1 %>
+ <%= f.hidden_field "poziom_zadania", :value => 5 %>
   <%= f.hidden_field "nr_zadania", :value => 3 %>
   <%= f.text_area :odp, size: "60x5" %><br>
   <%= f.submit "Wyślij" %></br>
 <% end %>
 <br></br>
 <br>Zadanie 4</br>
-<br><%=ZadaniaGlowne.find_by(id: WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "4").zadania_glowne_id).tresc%></br>
+<br><%=ZadaniaGlowne.find_by(id: WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "2", numer: "4").zadania_glowne_id).tresc%></br>
 <%= form_for :zad, url: {action: "rozwiazanie"} do |f| %>
- <%= f.hidden_field "poziom_zadania", :value => 1 %>
+ <%= f.hidden_field "poziom_zadania", :value => 5 %>
   <%= f.hidden_field "nr_zadania", :value => 4 %>
   <%= f.text_area :odp, size: "60x5" %><br>
   <%= f.submit "Wyślij" %></br>
 <% end %>
 <br></br>
 <br>Zadanie 5</br>
-<br><%=ZadaniaGlowne.find_by(id: WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "5").zadania_glowne_id).tresc%></br>
+<br><%=ZadaniaGlowne.find_by(id: WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "2", numer: "5").zadania_glowne_id).tresc%></br>
 <%= form_for :zad, url: {action: "rozwiazanie"} do |f| %>
- <%= f.hidden_field "poziom_zadania", :value => 1 %>
+ <%= f.hidden_field "poziom_zadania", :value => 5 %>
   <%= f.hidden_field "nr_zadania", :value => 5 %>
   <%= f.text_area :odp, size: "60x5" %><br>
   <%= f.submit "Wyślij" %></br>

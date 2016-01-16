@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :wiadomoscis
 
   get 'student/za1' =>'student#za1'
-  get 'student/inbox' =>'student#inbox'
   get 'student/za2' =>'student#za2'
+  get 'student/za3' =>'student#za3'
+  get 'student/za4' =>'student#za4'
+  get 'student/za5' =>'student#za5'
 
   get 'konto/rejestracja'
 
@@ -27,7 +29,7 @@ Rails.application.routes.draw do
       resources :student
     end
   end
-   post 'student/zad11' => 'student#zad11'
+   post 'student/rozwiazanie' => 'student#rozwiazanie'
   
    
   
