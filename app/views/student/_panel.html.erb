@@ -1,3 +1,24 @@
+<%
+@student = Student.find_by(login: session[:login])
+@progr=Progre.find_by(student_id: session[:user_id])
+
+gr= Student.find(session[:user_id])
+       progresy=Progre.order(pkt_rankingowe: :desc)
+        i=1
+        k=0
+       progresy.each do |pr|
+       k=k+1
+            if pr.student_id==session[:user_id]
+                @ran=i
+                @j=k
+            end
+            gru=Student.find(pr.student_id)
+            if gru.grupy_id==gr.grupy_id
+                i=i+1
+            end
+       end
+%>
+ 
 <h1>zalogowano do kąta <%= @student.imie%></h1>
 Imię i nazwisko: <%= @student.imie %> <%= @student.nazwisko %><br></br>
 level <%=@progr.level %><br></br>
@@ -6,10 +27,10 @@ doswiadczenie <%=@progr.doswiadczenie %><br></br>
 punkty rankingowe <%=@progr.pkt_rankingowe %><br></br>
 pozycja w rankingu grupy <%= @ran %><br></br>
 pozycja w rankingu światowym <%= @j %><br></br>
-<br><%= link_to "Wiadomosci", wiadomoscis_path(session[:user_id]) %><%= Wiadomosci.where(student_id: session[:user_id], przeczytana: "0").count%> | 
+<br>|<%= link_to "Mapa świata", student_path(session[:user_id]) %> | 
+<%= link_to "Wiadomosci", wiadomoscis_path(session[:user_id]) %><%= Wiadomosci.where(student_id: session[:user_id], przeczytana: "0").count%> | 
 <%= link_to "Edytuj profil", edit_student_path(session[:user_id]) %> | 
 <%= link_to "challenge", student_challenge_path(session[:user_id]) %> |
 <%= link_to "challenge otrzymane", student_challengeinbox_path(session[:user_id]) %><%= ZadaniaPoboczne.where(wyzwany: session[:user_id], status: "0").count%> |
-
 </br>
-<br></br>
+<br>---------------------------------------------------------------------------------------------------------------</br>

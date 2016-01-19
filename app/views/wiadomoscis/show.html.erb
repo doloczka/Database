@@ -1,4 +1,5 @@
 <% if zalogowany_student? %>
+    <%= render "student/panel" %>
     <br><%= link_to "Powrót do skrzynki odbiorczej", wiadomoscis_path(session[:user_id]) %>
 <%end%>
 <p id="notice"><%= notice %></p>

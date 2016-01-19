@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(version: 20160118175353) do
   create_table "terminies", force: :cascade do |t|
     t.integer  "grupy_id"
     t.integer  "nr_zajec"
-    t.date     "poczatek"
-    t.date     "koniec"
+    t.datetime "poczatek"
+    t.datetime "koniec"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

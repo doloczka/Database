@@ -5,21 +5,21 @@ Rails.application.routes.draw do
 
   resources :wiadomoscis
 
-  get 'student/za1' =>'student#za1'
-  get 'student/za2' =>'student#za2'
-  get 'student/za3' =>'student#za3'
-  get 'student/za4' =>'student#za4'
-  get 'student/za5' =>'student#za5'
+  get 'student/za1'# =>'student#za1'
+  get 'student/za2'# =>'student#za2'
+  get 'student/za3'# =>'student#za3'
+  get 'student/za4'# =>'student#za4'
+  get 'student/za5'# =>'student#za5'
   
-  post 'student/rozwiazanie' => 'student#rozwiazanie'
+  post 'student/rozwiazanie'# => 'student#rozwiazanie'
   
-  get 'student/challenge' =>'student#challenge'
-  get 'student/chosechallenge' =>'student#chosechallenge'
-  get 'student/challengeodp' =>'student#challengeodp'
-  get 'student/challengeodp2' =>'student#challengeodp2'
-  get 'student/challengeinbox' =>'student#challengeinbox'
-  post 'student/challengeconfirm' =>'student#challengeconfirm'
-  post 'student/challengeconfirm2' =>'student#challengeconfirm2'
+  get 'student/challenge'# =>'student#challenge'
+  get 'student/chosechallenge'# =>'student#chosechallenge'
+  get 'student/challengeodp' #=>'student#challengeodp'
+  get 'student/challengeodp2'# =>'student#challengeodp2'
+  get 'student/challengeinbox'# =>'student#challengeinbox'
+  post 'student/challengeconfirm'# =>'student#challengeconfirm'
+  post 'student/challengeconfirm2'# =>'student#challengeconfirm2'
   
   get 'konto/rejestracja'
 

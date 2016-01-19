@@ -193,3 +193,8 @@ Wiadomosci.create!(wykladowca_id: "1",
 		temat: "temacik",
 		przeczytana: "0"
 		)
+Terminy.create!(grupy_id: "1", nr_zajec: "1", poczatek: "2016-01-19 06:00:00" , koniec: "2016-01-19 12:00:00" )
+Terminy.create!(grupy_id: "1", nr_zajec: "2", poczatek: "2016-01-20 06:00:00" , koniec: "2016-01-20 12:00:00" )
+Terminy.create!(grupy_id: "1", nr_zajec: "3", poczatek: "2016-01-21 06:00:00" , koniec: "2016-01-21 12:00:00" )
+Terminy.create!(grupy_id: "1", nr_zajec: "4", poczatek: "2016-01-22 06:00:00" , koniec: "2016-01-22 12:00:00" )
+Terminy.create!(grupy_id: "1", nr_zajec: "5", poczatek: "2016-01-23 06:00:00" , koniec: "2016-01-23 12:00:00" )

@@ -3,10 +3,11 @@ class CreateTerminies < ActiveRecord::Migration
     create_table :terminies do |t|
       t.references :grupy, index: true, foreign_key: true
       t.integer :nr_zajec
-      t.date :poczatek
-      t.date :koniec
+      t.datetime :poczatek
+      t.datetime :koniec
 
       t.timestamps null: false
     end
   end
 end
+

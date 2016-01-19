@@ -22,6 +22,7 @@
 <br>Zadanie 3</br>
 <br><%=ZadaniaGlowne.find_by(id: WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "2", numer: "3").zadania_glowne_id).tresc%></br>
 <%= form_for :zad, url: {action: "rozwiazanie"} do |f| %>
+ <%= render "panel" %>
  <%= f.hidden_field "poziom_zadania", :value => 5 %>
   <%= f.hidden_field "nr_zadania", :value => 3 %>
   <%= f.text_area :odp, size: "60x5" %><br>

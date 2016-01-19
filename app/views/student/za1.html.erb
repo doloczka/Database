@@ -1,5 +1,5 @@
+<%= render "panel"%>
 
-<%= link_to "Mapa świata", student_path(session[:user_id]) %>
 <br></br>
 <br>Zadanie 1</br>
 <br><%=ZadaniaGlowne.find_by(id: WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: "1", numer: "1").zadania_glowne_id).tresc%></br>

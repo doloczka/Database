@@ -1,6 +1,7 @@
 class StudentController < ApplicationController
     before_action :aktywny_student, only: :show
-    
+  
+      
   def new
     grupy = Grupy.find(params[:grupy_id])
     @students = grupy.students.build
@@ -28,6 +29,8 @@ class StudentController < ApplicationController
     progres = Progre.new(student_id: student.id, pkt_rankingowe: "0", zdrowie: "100", doswiadczenie: "0", level: 1)
     progres.save
   end
+  
+
   
     def show
         @student = Student.find_by(login: session[:login])

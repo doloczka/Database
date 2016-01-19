@@ -1,3 +1,4 @@
+<%= render "panel" %>
 <br><%=ZadaniaPoboczne.find(params[:idwyzwania]).zadanie_tresc%></br>
 <%= form_for :zad, url: {action: "challengeconfirm2"} do |f| %>
   <%= f.hidden_field "wyzwanie", :value => params[:idwyzwania] %>

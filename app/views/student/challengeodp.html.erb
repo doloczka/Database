@@ -1,3 +1,4 @@
+<%= render "panel" %>
 <%= link_to "Mapa świata", student_path(session[:user_id]) %>
 <br><%=ZadaniaGlowne.find_by(id: params[:zada]).tresc%></br>
 <%= form_for :zad, url: {action: "challengeconfirm"} do |f| %>
