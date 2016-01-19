@@ -84,7 +84,7 @@ class StudentController < ApplicationController
         @zad=Rozwiazanium.find_by(student_id: session[:user_id])
         idzadania=WylosowaneZadanium.find_by(student_id: session[:user_id], poziom: params[:zad][:poziom_zadania], numer: params[:zad][:nr_zadania])
         tre=ZadaniaGlowne.find_by(id: idzadania.zadania_glowne_id)
-        @zad.update_attributes(:odpowiedz => params[:zad][:odp], :tresc_zadania =>  tre.tresc)
+        @zad.update_attributes(:odpowiedz => params[:zad][:odp], :tresc_zadania =>  tre.tresc, :punkty => params[:zad][:punkty])
         if @zad.save
            redirect_to :back
         end

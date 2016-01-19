@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160118175353) do
     t.integer  "student_id"
     t.text     "tresc_zadania"
     t.text     "odpowiedz"
+    t.integer  "punkty"
     t.integer  "przeczytana"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

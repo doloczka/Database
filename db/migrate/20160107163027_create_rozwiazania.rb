@@ -5,6 +5,7 @@ class CreateRozwiazania < ActiveRecord::Migration
       t.references :student, index: true, foreign_key: true
       t.text :tresc_zadania
       t.text :odpowiedz
+      t.integer :punkty
       t.integer :przeczytana
 
       t.timestamps null: false
