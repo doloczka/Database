@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114200657) do
+ActiveRecord::Schema.define(version: 20160118175353) do
 
   create_table "grupies", force: :cascade do |t|
     t.text     "nazwa"
@@ -128,15 +128,17 @@ ActiveRecord::Schema.define(version: 20160114200657) do
 
   create_table "zadania_pobocznes", force: :cascade do |t|
     t.integer  "wykladowca_id"
-    t.integer  "grupy_id"
     t.integer  "poziom_zadania"
-    t.text     "tresc"
-    t.text     "podpowiedz"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.text     "zadanie_tresc"
+    t.integer  "wyzywajacy"
+    t.text     "odpowiedz_wyzywajacego"
+    t.integer  "wyzwany"
+    t.text     "odpowiedz_wyzwanego"
+    t.integer  "status"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index "zadania_pobocznes", ["grupy_id"], name: "index_zadania_pobocznes_on_grupy_id"
   add_index "zadania_pobocznes", ["wykladowca_id"], name: "index_zadania_pobocznes_on_wykladowca_id"
 
 end

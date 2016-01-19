@@ -10,7 +10,17 @@ Rails.application.routes.draw do
   get 'student/za3' =>'student#za3'
   get 'student/za4' =>'student#za4'
   get 'student/za5' =>'student#za5'
-
+  
+  post 'student/rozwiazanie' => 'student#rozwiazanie'
+  
+  get 'student/challenge' =>'student#challenge'
+  get 'student/chosechallenge' =>'student#chosechallenge'
+  get 'student/challengeodp' =>'student#challengeodp'
+  get 'student/challengeodp2' =>'student#challengeodp2'
+  get 'student/challengeinbox' =>'student#challengeinbox'
+  post 'student/challengeconfirm' =>'student#challengeconfirm'
+  post 'student/challengeconfirm2' =>'student#challengeconfirm2'
+  
   get 'konto/rejestracja'
 
   get 'logowanie_form' => 'konto#logowanie_form'
@@ -29,7 +39,7 @@ Rails.application.routes.draw do
       resources :student
     end
   end
-   post 'student/rozwiazanie' => 'student#rozwiazanie'
+   
   
    
   

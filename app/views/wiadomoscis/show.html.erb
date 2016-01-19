@@ -1,4 +1,6 @@
-
+<% if zalogowany_student? %>
+    <br><%= link_to "Powrót do skrzynki odbiorczej", wiadomoscis_path(session[:user_id]) %>
+<%end%>
 <p id="notice"><%= notice %></p>
     
 <br>temat: <%= Wiadomosci.find_by(id: @wiadomosci.id).temat %></br>

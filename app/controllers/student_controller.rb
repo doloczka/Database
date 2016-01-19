@@ -87,8 +87,8 @@ class StudentController < ApplicationController
         end
     end
 
-    def za1
-       
+    def challengeinbox
+        @wyzwania=ZadaniaPoboczne.where(wyzwany: session[:user_id])
     end
     
     
@@ -131,6 +131,44 @@ class StudentController < ApplicationController
             format.json { head :no_content }
         end
     end
+    
+    def challenge
+        student=Student.find(session[:user_id])
+        @idgru=Student.where(grupy_id: student.grupy_id)
+    end
+    
+    def chosechallenge
+        poziom=Progre.find_by(student_id: session[:user_id])
+        @zadania=ZadaniaGlowne.where(poziom_zadania: poziom.level)   
+        @wyzwany=Student.find(params[:idst])
+    end
+    
+    def challengeconfirm
+         student=Student.find(session[:user_id])
+        grupa=Grupy.find_by(student.grupy_id)
+        zadanie=ZadaniaGlowne.find(params[:zad][:zadanie])
+        data={
+            "wykladowca_id" => grupa.wykladowca_id ,
+            "poziom_zadania" => zadanie.poziom_zadania ,
+            "zadanie_tresc" => zadanie.tresc ,
+            "wyzywajacy" => session[:user_id],
+            "odpowiedz_wyzywajacego" => params[:zad][:odp],
+            "wyzwany" => params[:zad][:wyzwany],
+            "odpowiedz_wyzwanego" => "",
+            "status" => "0"
+        }
+        ZadaniaPoboczne.new(data).save
+        redirect_to root_url
+    end
+    
+    def challengeconfirm2
+        wyzwanie=ZadaniaPoboczne.find(params[:zad][:wyzwanie])
+        wyzwanie.update_attributes(:odpowiedz_wyzwanego => params[:zad][:odp] , :status=>1)
+        if wyzwanie.save
+            redirect_to root_url
+        end
+    end
+    
     private
     
     def aktywny_student

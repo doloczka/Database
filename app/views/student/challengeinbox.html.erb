@@ -1,0 +1,21 @@
+<%= link_to "Mapa świata", student_path(session[:user_id]) %><br></br>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+ <% i=0%>
+  <tbody>
+    <% @wyzwania.each do |wyzwanie| %>
+      <tr>
+          <% if wyzwanie.status==0 %>
+            <td><%= i=1+i %></td>
+            <td><%= Student.find(wyzwanie.wyzywajacy).imie %></td>
+            <td><%= Student.find(wyzwanie.wyzywajacy).nazwisko %></td>
+            <td><%= link_to "Rozwiaż", student_challengeodp2_path(:idwyzwania => wyzwanie.id)%></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

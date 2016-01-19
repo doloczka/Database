@@ -1,3 +1,6 @@
+<% if zalogowany_student? %>
+    <%= link_to "Mapa świata", student_path(session[:user_id]) %>
+<%end%>
 <p id="notice"><%= notice %></p>
 
 <h1>Wiadomosci</h1>

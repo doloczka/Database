@@ -1,0 +1,8 @@
+<%= link_to "Mapa świata", student_path(session[:user_id]) %>
+<br><%=ZadaniaGlowne.find_by(id: params[:zada]).tresc%></br>
+<%= form_for :zad, url: {action: "challengeconfirm"} do |f| %>
+  <%= f.hidden_field "zadanie", :value => params[:zada] %>
+  <%= f.hidden_field "wyzwany", :value => params[:idst] %>
+  <%= f.text_area :odp, size: "60x5" %><br>
+  <%= f.submit "Wyślij" %></br>
+<% end %> 
