@@ -76,6 +76,7 @@ class StudentController < ApplicationController
             end
        end
     end
+    
     def aktywny_student
        redirect_to root_url if zalogowany_student.nil?
     end 

@@ -17,14 +17,14 @@
       <tr>
         <td><%= i=1+i %></td>
         <td><%= wiadomosci.temat %></td>
-        <td><%= link_to 'Otworz', wiadomosci %></td>
+        <td><%= link_to 'Otworz', wiadomosci_path(:id => wiadomosci.id) %></td>
         <td><%= link_to 'Usuń', wiadomosci, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <% if zalogowany_student? %>
-  <br><%= link_to 'zadaj pytanie wykladowcy', new_wiadomosci_path(session[:user_id])%></br>
+  <br><%= link_to 'zadaj pytanie wykladowcy', new_wiadomosci_path(:id => session[:user_id])%></br>
 <% end  %>
 <br></br>
 <%= link_to 'Back', student_path(session[:user_id]) %>

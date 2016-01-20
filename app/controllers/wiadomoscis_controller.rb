@@ -1,6 +1,6 @@
 class WiadomoscisController < ApplicationController
   before_action :set_wiadomosci, only: [:show, :edit, :update, :destroy]
-  
+
 
   # GET /wiadomoscis
   # GET /wiadomoscis.json
@@ -11,13 +11,12 @@ class WiadomoscisController < ApplicationController
     if zalogowany_wykladowca?
       @wiadomoscis = Wiadomosci.where(wykladowca_id: session[:user_id], przeczytana: "1")
     end
-    
+
   end
 
   # GET /wiadomoscis/1
   # GET /wiadomoscis/1.json
   def show
-   
   end
 
   # GET /wiadomoscis/new
@@ -39,10 +38,44 @@ class WiadomoscisController < ApplicationController
     createwy
    end
   end
-  
-  
-  
-  
+  def createstu
+    student=Student.find_by(id: session[:user_id])
+    gr=Grupy.find_by(student.grupy_id)
+    @wiadomosci = Wiadomosci.new(wiadomosci_params)
+    @wiadomosci.student_id=session[:user_id]
+    @wiadomosci.wykladowca_id=gr.wykladowca_id
+    @wiadomosci.przeczytana="1"
+
+      respond_to do |format|
+        if @wiadomosci.save
+
+          format.html { redirect_to @wiadomosci, notice: 'Wiadomosci was successfully created.' }
+          format.json { render :show, status: :created, location: @wiadomosci }
+        else
+          format.html { render :new }
+          format.json { render json: @wiadomosci.errors, status: :unprocessable_entity }
+        end
+      end
+  end
+    def createwy
+      @wiadomosci = Wiadomosci.new(wiadomosci_params)
+      @wiadomosci.wykladowca_id=session[:user_id]
+       @wiadomosci.student_id=params[:wiadomosci][:id]
+      @wiadomosci.przeczytana="0"
+
+        respond_to do |format|
+          if @wiadomosci.save
+            format.html { redirect_to @wiadomosci, notice: 'Wiadomosci was successfully created.' }
+            format.json { render :show, status: :created, location: @wiadomosci }
+          else
+            format.html { render :new }
+            format.json { render json: @wiadomosci.errors, status: :unprocessable_entity }
+          end
+        end
+    end
+
+
+
   # PATCH/PUT /wiadomoscis/1
   # PATCH/PUT /wiadomoscis/1.json
   def update
@@ -70,46 +103,13 @@ class WiadomoscisController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_wiadomosci
-      @wiadomosci = Wiadomosci.find(params[:id])
+      @wiadomosci = Wiadomosci.find(session[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wiadomosci_params
       params.require(:wiadomosci).permit(:temat, :tresc)
     end
-    
-    def createstu
-    student=Student.find_by(id: session[:user_id])
-    gr=Grupy.find_by(student.grupy_id)
-    @wiadomosci = Wiadomosci.new(wiadomosci_params)
-    @wiadomosci.student_id=session[:user_id]
-    @wiadomosci.wykladowca_id=gr.wykladowca_id
-    @wiadomosci.przeczytana="1"
-    
-      respond_to do |format|
-        if @wiadomosci.save
-          format.html { redirect_to @wiadomosci, notice: 'Wiadomosci was successfully created.' }
-          format.json { render :show, status: :created, location: @wiadomosci }
-        else
-          format.html { render :new }
-          format.json { render json: @wiadomosci.errors, status: :unprocessable_entity }
-        end
-      end
-    end
-    def createwy 
-      @wiadomosci = Wiadomosci.new(wiadomosci_params)
-      @wiadomosci.wykladowca_id=session[:user_id]
-       @wiadomosci.student_id=params[:student_id]
-      @wiadomosci.przeczytana="0"
-      @a=params[:student_id]
-        respond_to do |format|
-          if @wiadomosci.save
-            format.html { redirect_to @wiadomosci, notice: 'Wiadomosci was successfully created.' }
-            format.json { render :show, status: :created, location: @wiadomosci }
-          else
-            format.html { render :new }
-            format.json { render json: @wiadomosci.errors, status: :unprocessable_entity }
-          end
-        end
-    end
+
+
 end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'student/za3'# =>'student#za3'
   get 'student/za4'# =>'student#za4'
   get 'student/za5'# =>'student#za5'
+  get 'student/panel' =>'student#panel'
   
   post 'student/rozwiazanie'# => 'student#rozwiazanie'
   

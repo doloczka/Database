@@ -3,11 +3,11 @@
     <br><%= link_to "Powrót do skrzynki odbiorczej", wiadomoscis_path(session[:user_id]) %>
 <%end%>
 <p id="notice"><%= notice %></p>
-    
-<br>temat: <%= Wiadomosci.find_by(id: @wiadomosci.id).temat %></br>
-tresc: <%= Wiadomosci.find_by(id: @wiadomosci.id).tresc %>
 
-<% if zalogowany_student? %> 
+<br>temat: <%= Wiadomosci.find(params[:id]).temat %></br>
+    tresc: <%= Wiadomosci.find(params[:id]).tresc %>
+
+<% if zalogowany_student? %>
     <br>
         <%= link_to 'Odpowiedz', new_wiadomosci_path(session[:user_id])%>
    </br>
@@ -15,7 +15,7 @@ tresc: <%= Wiadomosci.find_by(id: @wiadomosci.id).tresc %>
     <br>
          <%= link_to 'Odpowiedz', new_wiadomosci_path(session[:user_id])%>
     </br>
-<% end %>    
-    
+<% end %>
+
 <br></br>
 <%= link_to 'Back', wiadomoscis_path %>
